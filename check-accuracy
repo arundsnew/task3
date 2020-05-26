@@ -1,0 +1,13 @@
+if [[ "$(sudo cat ./accuracy.txt)" < "0.9500" ]]
+then
+echo "Accuracy achieved is less than 95%.. "
+echo "Change parameters for better accuracy"
+sudo python3 ./tweaker.py
+curl http://localhost:8080/job/j3/build?token=tweaked
+else
+echo "Accuracy achieved is more than 99%.. "
+echo "Good to go ahead, no more parameters change required"
+curl localhost:8080/job/j3/build?token=modelCreateSuccessfully
+
+
+
