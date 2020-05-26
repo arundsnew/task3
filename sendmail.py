@@ -1,10 +1,9 @@
-#instagram.com/machinelearning.teknoboost
 
 import smtplib
-sender_email="hemantgangwar9@gmail.com"
-rec_email="hemantgangwar543@gmail.com"
+sender_email="arundsnew@gmail.com"
+rec_email="arundsnew@gmail.com"
 password=input(str("Enter your password :"))
-message="This email was sent using python."
+message="Jenkins Notification Email"
 
 server=smtplib.SMTP('smtp.gmail.com',587)
 server.ehlo()
