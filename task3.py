@@ -9,7 +9,7 @@ from keras.utils import np_utils
 import keras
 import sys
 
-sys.stdin=open('/home/spidohemant/Desktop/projects/mlops1/input.txt','r')
+sys.stdin=open('./input.txt','r')
 
 # loads the MNIST dataset
 (x_train, y_train), (x_test, y_test)  = mnist.load_data()
@@ -106,13 +106,9 @@ print(model.summary())
 
 
 # ### Now let us train LeNet on our MNIST Dataset
-
-# In[3]:
-
-
 # Training Parameters
 batch_size = 128
-epochs = 5
+epochs = 2
 
 history = model.fit(x_train, y_train,
           batch_size=batch_size,
@@ -120,20 +116,19 @@ history = model.fit(x_train, y_train,
           validation_data=(x_test, y_test),
           shuffle=True)
 
-model.save("mlopsjenkins.h5")
+model.save("./task3.h5")
 
 # Evaluate the performance of our trained model
 scores = model.evaluate(x_test, y_test, verbose=1)
 print('Test loss:', scores[0])
 print('Test accuracy:', scores[1])
 
-accuracy_file = open('/home/spidohemant/Desktop/projects/mlops1/accuracy.txt','w')
+accuracy_file = open('./accuracyfinal.txt','w')
 accuracy_file.write(str(scores[1]))
 accuracy_file.close()
 
-display_matter = open('/home/spidohemant/Desktop/projects/mlops1/displayresult.html','r+')
+display_matter = open('./accuracyfinal.html','r+')
 display_matter.read()
-display_matter.write('<pre>\n---------------------------------------------\n')
 display_matter.write(this_layer)
-display_matter.write('\nAccuracy achieved : ' + str(scores[1])+'\n</pre>')
+display_matter.write('\nAccuracy Final : ' + str(scores[1])+'\n</pre>')
 display_matter.close()
