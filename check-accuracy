@@ -7,7 +7,7 @@ curl http://localhost:8080/job/j3/build?token=tweaked
 else
 echo "Accuracy achieved is more than 99%.. "
 echo "Good to go ahead, no more parameters change required"
-curl localhost:8080/job/j3/build?token=modelCreateSuccessfully
-
+curl http://localhost:8080/job/j3/build?token=modelCreateSuccessfully
+fi
 
 
