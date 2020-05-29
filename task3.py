@@ -9,17 +9,23 @@ from keras.utils import np_utils
 import keras
 import sys
 
+
+
+
 try:
-    sys.argv[1]
+    if len(sys.argv) == 1:
+        setepoch = 3
+    print ("Epoch set - no Argv = ",setepoch)
+    fi
 except NameError:
-    setepoch = 2
+    print ("Epoch set but no Argv = ",setepoch)
 else:
-    epoch = sys.argv[1]
-    print (setepoch)
+    setepoch = 3 if len(sys.argv) > 1 else ""
+    print ("Epoch set from Argv = ",setepoch)
     
 
-
 sys.stdin=open('./input.txt','r')
+
 
 # loads the MNIST dataset
 (x_train, y_train), (x_test, y_test)  = mnist.load_data()
